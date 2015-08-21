@@ -24,7 +24,7 @@
         function save()
         {
             $GLOBALS['DB']->exec("INSERT INTO stylist (stylist_name) VALUES
-            ('{$this->getStylistName()}')");
+            ('{$this->getStylistName()}');");
             $this->id = $GLOBALS['DB']->lastInsertId();
         }
         static function getAll()
@@ -59,7 +59,7 @@
         {
             $clients = array();
             $returned_clients = $GLOBALS['DB']->query("SELECT FROM client WHERE
-            stylist_id = {$this->getId()}");
+            stylist_id = ('{$this->getId()}');");
             foreach($returned_clients as $client) {
                 $client_name = $client['client_name'];
                 $id = $client['id'];

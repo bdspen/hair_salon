@@ -29,8 +29,11 @@
         }
         function save()
         {
-            $GLOBALS['DB']->exec("INSERT INTO client (client_name) VALUES
-            ('{$this->getClientName()}')");
+            $GLOBALS['DB']->exec("INSERT INTO client (client_name, stylist_id) VALUES
+            (
+                '{$this->getClientName()}',
+                {$this->getStylistId()}
+            );");
             $this->id = $GLOBALS['DB']->lastInsertId();
         }
         static function getAll()
@@ -39,8 +42,9 @@
             $clients = array();
             foreach($returned_clients as $client) {
                 $client_name = $client['client_name'];
+                $stylist_id = $client['stylist_id'];
                 $id = $client['id'];
-                $new_client = new Client($client_name, $id);
+                $new_client = new Client($client_name, $stylist_id, $id);
                 array_push($clients, $new_client);
             }
             return $clients;
@@ -51,7 +55,7 @@
         }
         static function find($search_id)
         {
-            $found_client =null;
+            $found_client = null;
             $clients = Client::getAll();
             foreach($clients as $client) {
                 $client_id = $client->getId();

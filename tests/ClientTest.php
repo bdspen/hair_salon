@@ -38,6 +38,19 @@
             //Assert
             $this->assertEquals(true, is_numeric($result));
         }
+        function test_save()
+        {
+            //Arrange
+            $client_name = "Donna";
+            $test_client = new Client($client_name);
+            $test_client->save();
+
+            //Act
+            $result = client::getAll();
+
+            //Assert
+            $this->assertEquals($test_client, $result[0]);
+        }
     }
 
 

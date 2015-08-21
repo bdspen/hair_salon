@@ -6,7 +6,7 @@
 
     require_once "src/Stylist.php";
 
-    // $server = 'mysql:host=localhost;dbname=restaurants_by_cuisine_test';
+    // $server = 'mysql:host=localhost;dbname=hair_salon_test';
     // $username = 'root';
     // $password = 'root';
     // $DB = new PDO($server, $username, $password);
@@ -24,6 +24,20 @@
 
             //Assert
             $this->assertEquals($stylist_name, $result);
+        }
+        function test_getId()
+        {
+            //Arrange
+            $stylist_name = "Donna";
+            $id = 1;
+            $test_stylist = new Stylist($stylist_name, $id);
+
+            //Act
+            $result = $test_stylist->getId();
+
+            //Assert
+            $this->assertEquals(true, is_numeric($result));
+
         }
     }
 

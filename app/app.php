@@ -25,7 +25,14 @@
     $app->post("/stylists", function() use ($app) {
         $stylist = new Stylist($_POST['stylist_name']);
         $stylist->save();
-        return $app['twig']->render('index.html.twig', array('stylists' => Stylist:getAll()));
+        return $app['twig']->render('index.html.twig', array('stylists' => Stylist::getAll()));
+    });
+
+    //View a particular stylist's page and their list of clients with getAllClients() method
+    $app->get("/stylists/{id}", function($id) use ($app) {
+        $stylist = Stylist::find($id);
+        return $app['twig']->render('stylist.html.twig',
+        array('stylist' = $stylist, 'client' => $stylist->getAllClients()));
     });
 
     //Clear ALL Stylists

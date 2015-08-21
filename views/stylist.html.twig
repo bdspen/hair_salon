@@ -1,8 +1,32 @@
 <html>
     <head>
-        <title></title>
+        <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css'>
+        <title>{{ stylist.getStylistName }}</title>
     </head>
     <body>
+        <div class='container'>
+            <h1>{{ stylist.getStylistName }}'s Clients:</h1>
 
+            {% if clients is not empty %}
+
+                {% for client in clients %}
+                    <h3>{{ client.getClientName }}</h3>
+                {% endfor %}
+
+            {% else %}
+                <p>No clients added yet!</p>
+
+            {% endif %}
+
+            <form action='/' method='post'>
+                <input type='hidden' name='stylist_id' value='{{ stylist.getId() }}'>
+
+                <input type='text' name='client_name' placeholder='Client Name'>
+                <button type='submit'>Add Client</button>
+            </form>
+
+            <p><a href='/'>Home</a></p>
+
+        </div>
     </body>
 </html>

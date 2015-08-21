@@ -4,6 +4,9 @@
     require_once __DIR__."/../src/Client.php";
     require_once __DIR__."/../src/Stylist.php";
 
+    use Symfony\Component\Debug\Debug;
+    Debug::enable();
+
     $app = new Silex\Application();
     $app['debug'] = true;
 
@@ -32,10 +35,12 @@
     $app->get("/stylists/{id}", function($id) use ($app) {
         $stylist = Stylist::find($id);
         return $app['twig']->render('stylist.html.twig',
-        array('stylist' => $stylist, 'client' => $stylist->getAllClients()));
+        array('stylist' => $stylist, 'clients' => $stylist->getAllClients()));
     });
 
-    //Clear ALL Stylists
+    //save a new client
+
+    // Clear ALL Stylists
     $app->post("/delete_stylists", function() ($app) {
         Stylist::deleteAll();
         Client::deleteAll();

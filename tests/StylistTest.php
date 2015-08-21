@@ -16,7 +16,7 @@
         protected function tearDown()
        {
            Stylist::deleteAll();
-        //    Client::deleteAll();
+           Client::deleteAll();
        }
 
         function test_getStylistName()
@@ -123,15 +123,12 @@
             $test_stylist = new Stylist($stylist_name, $id);
             $test_stylist->save();
 
-            $test_stylist_name_id = $test_stylist->getId();
 
             $client_name = "Robin";
-            $client_id = $test_stylist->getId();
             $stylist_id = $test_stylist->getId();
-
-
             $test_client = new Client($client_name, $stylist_id);
             $test_client->save();
+
 
             $client_name2 = "Darla";
             $test_client2 = new Client($client_name2, $stylist_id);

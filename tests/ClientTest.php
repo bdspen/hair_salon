@@ -16,6 +16,7 @@
         protected function tearDown()
         {
             Client::deleteAll();
+            Stylist::deleteAll();
         }
         function test_getClientName()
         {

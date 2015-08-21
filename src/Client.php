@@ -49,10 +49,12 @@
             }
             return $clients;
         }
+
         static function deleteAll()
         {
             $GLOBALS['DB']->exec("DELETE FROM client;");
         }
+
         static function find($search_id)
         {
             $found_client = null;

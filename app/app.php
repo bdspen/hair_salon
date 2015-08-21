@@ -1,13 +1,13 @@
 <?php
 
     require_once __DIR__."/../vendor/autoload.php";
-    // require_once __DIR__."/../src/Client.php";
+    require_once __DIR__."/../src/Client.php";
     require_once __DIR__."/../src/Stylist.php";
 
     $app = new Silex\Application();
     $app['debug'] = true;
 
-    $server = 'mysql:host=localhost;dbname=hair_salon_test';
+    $server = 'mysql:host=localhost;dbname=hair_salon';
     $username = 'root';
     $password = 'root';
     $DB = new PDO($server, $username, $password);
@@ -32,13 +32,13 @@
     $app->get("/stylists/{id}", function($id) use ($app) {
         $stylist = Stylist::find($id);
         return $app['twig']->render('stylist.html.twig',
-        array('stylist' = $stylist, 'client' => $stylist->getAllClients()));
+        array('stylist' => $stylist, 'client' => $stylist->getAllClients()));
     });
 
     //Clear ALL Stylists
-    $app-> post("/delete_stylists", function() ($app) {
+    $app->post("/delete_stylists", function() ($app) {
         Stylist::deleteAll();
-        // Client::deleteAll();
+        Client::deleteAll();
         return $app['twig']->render('index.html.twig', array('stylists' => Stylist::getAll()));
     });
 

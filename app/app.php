@@ -52,7 +52,7 @@
     // Clear ALL Stylists
     $app->post("/delete_stylists", function() ($app) {
         Stylist::deleteAll();
-        Client::deleteAll();
+        // Client::deleteAll();
         return $app['twig']->render('index.html.twig', array('stylists' => Stylist::getAll()));
     });
 

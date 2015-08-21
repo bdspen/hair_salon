@@ -27,5 +27,21 @@
             ('{$this->getClientName()}')");
             $this->id = $GLOBALS['DB']->lastInsertId();
         }
+        static function getAll()
+        {
+            $returned_clients = $GLOBALS['DB']->query("SELECT * FROM client;");
+            $clients = array();
+            foreach($returned_clients as $client) {
+                $client_name = $client['client_name'];
+                $id = $client['id'];
+                $new_client = new Client($client_name, $id);
+                array_push($clients, $new_client);
+            }
+            return $clients;
+        }
+        static function deleteAll()
+        {
+            $GLOBALS['DB']->exec("DELETE FROM client;");
+        }
     }
  ?>

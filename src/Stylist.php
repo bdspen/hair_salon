@@ -55,5 +55,11 @@
             }
             return $found_stylist;
         }
+        function getAllClients()
+        {
+            $clients = array();
+            $returned_clients = $GLOBALS['DB']->query("SELECT FROM client WHERE stylist_id")
+        }
+        return 
     }
  ?>

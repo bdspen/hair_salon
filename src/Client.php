@@ -21,5 +21,11 @@
         {
             return $this->id;
         }
+        function save()
+        {
+            $GLOBALS['DB']->exec("INSERT INTO client (client_name) VALUES
+            ('{$this->getClientName()}')");
+            $this->id = $GLOBALS['DB']->lastInsertId();
+        }
     }
  ?>

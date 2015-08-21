@@ -71,8 +71,14 @@
         function test_save()
         {
             //Arrange
+            $stylist_name = "Donna";
+            $id = null;
+            $test_stylist = new Stylist($stylist_name, $id);
+            $test_stylist->save();
+
             $client_name = "Robin";
-            $test_client = new Client($client_name);
+            $stylist_id = $test_stylist->getId();
+            $test_client = new Client($client_name, $stylist_id);
             $test_client->save();
 
             //Act

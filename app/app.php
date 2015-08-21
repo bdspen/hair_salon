@@ -39,6 +39,15 @@
     });
 
     //save a new client
+    $app->post("/clients", function() use ($app) {
+        $client_name = $_POST['client_name'];
+        $stylist_id = $_POST['stylist_id'];
+        $client = new Client($client_name, $stylist_id);
+        $client->save();
+        $stylist = Stylist::find($stylist_id);
+        return $app['twig']->render('stylist.html.twig', array('stylists' => $stylist,
+        'clients' => $stylist->getAllClients()));
+    });
 
     // Clear ALL Stylists
     $app->post("/delete_stylists", function() ($app) {

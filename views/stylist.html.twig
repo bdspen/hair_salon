@@ -1,11 +1,11 @@
 <html>
     <head>
         <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css'>
-        <title>{{ stylists.getStylistName }}</title>
+        <title>{{ stylist.getStylistName }}</title>
     </head>
     <body>
         <div class='container'>
-            <h1>{{ stylists.getStylistName }}'s Clients:</h1>
+            <h1>{{ stylist.getStylistName }}'s Clients:</h1>
 
             {% if clients is not empty %}
 
@@ -19,7 +19,7 @@
             {% endif %}
 
             <form action='/clients' method='post'>
-                <input type='hidden' name='stylist_id' value='{{ stylists.getId() }}'>
+                <input type='hidden' name='stylist_id' value='{{ stylist.getId() }}'>
 
                 <input type='text' name='client_name' placeholder='Client Name'>
                 <button type='submit'>Add Client</button>

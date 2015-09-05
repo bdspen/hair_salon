@@ -10,7 +10,7 @@
     $app = new Silex\Application();
     $app['debug'] = true;
 
-    $server = 'mysql:host=localhost;dbname=hair_salon';
+    $server = 'mysql:host=localhost:8889;dbname=hair_salon';
     $username = 'root';
     $password = 'root';
     $DB = new PDO($server, $username, $password);
@@ -46,11 +46,11 @@
         $client->save();
         $stylist = Stylist::find($stylist_id);
         return $app['twig']->render('stylist.html.twig', array('stylists' => $stylist,
-        'clients' => $stylist->getAllClients()));
+        'clients' => $stylist->getAllClients(), 'stylist' => $stylist));
     });
 
     // Clear ALL Stylists
-    $app->post("/delete_stylists", function() ($app) {
+    $app->post("/delete_stylists", function() use ($app) {
         Stylist::deleteAll();
         // Client::deleteAll();
         return $app['twig']->render('index.html.twig', array('stylists' => Stylist::getAll()));

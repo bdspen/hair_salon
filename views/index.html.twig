@@ -22,12 +22,13 @@
             <p>Choose a stylist:</p>
             <ul>
                 {% for stylist in stylists %}
-                    <li><a href='/stylists/{{ stylist.getId }}' role='button' class='btn btn-default'>{{ stylist.getStylistName }}</a></li>
+                    <li><a href='/stylists/{{ stylist.getId }}' role='button'
+                        class='btn btn-default'>{{ stylist.getStylistName }}</a></li>
                 {% endfor %}
             </ul>
 
             <form action='/delete_stylists' method='post'>
-                <button type='submit' class='btn btn-danger btn-lg'>Clear All Stylists</button>
+                <button type='submit' class='btn btn-danger btn-xs'>Clear All Stylists</button>
             </form>
         {% else %}
             <p>No stylists to choose from yet!</p>

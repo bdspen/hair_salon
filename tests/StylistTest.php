@@ -6,7 +6,7 @@
 
     require_once "src/Stylist.php";
 
-    $server = 'mysql:host=localhost:8889;dbname=hair_salon_test';
+    $server = 'mysql:host=localhost;dbname=hair_salon_test';
     $username = 'root';
     $password = 'root';
     $DB = new PDO($server, $username, $password);
@@ -162,18 +162,18 @@
         function test_updateName()
         {
             $stylist_name = "Donna";
-            
+
             $test_stylist = new Stylist($stylist_name);
             $test_stylist->save();
-            
+
             $new_stylist_name = "Danny";
-            
+
             //Act
             $test_stylist->updateName($new_stylist_name);
-            
+
             //Assert
             $this->assertEquals($test_stylist->getStylistName(), "Danny");
-            
+
         }
     }
 

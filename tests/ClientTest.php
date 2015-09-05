@@ -6,7 +6,7 @@
 
     require_once "src/Client.php";
 
-    $server = 'mysql:host=localhost:8889;dbname=hair_salon_test';
+    $server = 'mysql:host=localhost;dbname=hair_salon_test';
     $username = 'root';
     $password = 'root';
     $DB = new PDO($server, $username, $password);
@@ -178,7 +178,7 @@
             $client_name2 = "Dingo";
             $stylist_id = 1;
             $stylist_id2 = 2;
-            
+
 
             $test_client = new Client($client_name, $stylist_id);
             $test_client->save();
@@ -197,18 +197,18 @@
         {
             $client_name = "Rob";
             $stylist_id = 1;
-            
+
             $test_client = new client($client_name,  $stylist_id);
             $test_client->save();
-            
+
             $new_client_name = "Dingo";
-            
+
             //Act
             $test_client->updateName($new_client_name);
-            
+
             //Assert
             $this->assertEquals($test_client->getclientName(), "Dingo");
-            
+
         }
     }
 

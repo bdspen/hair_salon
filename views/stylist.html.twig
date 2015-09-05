@@ -10,7 +10,7 @@
             {% if clients is not empty %}
 
                 {% for client in clients %}
-                    <h3>{{ client.getClientName }}</h3>
+                    <h3><a href="/client/{{ client.getId }}/edit">{{ client.getClientName }}</a></h3>
                 {% endfor %}
 
             {% else %}
@@ -18,11 +18,20 @@
 
             {% endif %}
 
-            <form action='/clients' method='post'>
-                <input type='hidden' name='stylist_id' value='{{ stylist.getId() }}'>
+            <h2>Add a Client</h2>
 
-                <input type='text' name='client_name' placeholder='Client Name'>
-                <button type='submit'>Add Client</button>
+            <form action='/clients' method='post'>
+                <div class='form-group'>
+                    <input type='hidden' name='stylist_id' value='{{ stylist.getId }}'>
+
+                    <input type='text' class='form-control' name='client_name' placeholder='Client Name'>
+                    <button class='btn btn-info' type='submit'>Add Client</button>
+                </div>
+            </form>
+            <form action="/stylist/{{ stylist.getId }}/delete" method="post">
+                <input name="_method" type="hidden" value="delete">
+
+                <button class="btn btn-danger btn-xs" type="submit">DELETE STYLIST</button>
             </form>
 
             <p><a href='/'>Home</a></p>

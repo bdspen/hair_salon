@@ -171,6 +171,45 @@
             //Assert
             $this->assertEquals($test_client, $result);
         }
+        function test_delete()
+        {
+            //Arrange
+            $client_name = "Rob";
+            $client_name2 = "Dingo";
+            $stylist_id = 1;
+            $stylist_id2 = 2;
+            
+
+            $test_client = new Client($client_name, $stylist_id);
+            $test_client->save();
+
+            $test_client2 = new client($client_name2,  $stylist_id2);
+            $test_client2->save();
+
+            //Act
+            $test_client->delete();
+            $result = Client::getAll();
+
+            //Assert
+            $this->assertEquals([$test_client2], Client::getAll());
+        }
+        function test_updateName()
+        {
+            $client_name = "Rob";
+            $stylist_id = 1;
+            
+            $test_client = new client($client_name,  $stylist_id);
+            $test_client->save();
+            
+            $new_client_name = "Dingo";
+            
+            //Act
+            $test_client->updateName($new_client_name);
+            
+            //Assert
+            $this->assertEquals($test_client->getclientName(), "Dingo");
+            
+        }
     }
 
 

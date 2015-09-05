@@ -67,5 +67,16 @@
             }
             return $found_client;
         }
+      //DELETE/UPDATE
+        function delete()
+        {
+            $GLOBALS['DB']->exec("DELETE from client WHERE id = {$this->getId()};");
+        }
+        function updateName($new_client_name)
+        {
+            $GLOBALS['DB']->exec("UPDATE client SET client_name = '{new_client_name}' 
+                WHERE id = {$this->getId()};");
+                $this->setClientName($new_client_name);
+        }
     }
  ?>

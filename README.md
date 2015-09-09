@@ -7,9 +7,7 @@
 
 ## Description
 
-At this point the application is unfinished. However some functionality is present.
-A user can add a hair stylist to a list and then add clients that are specific to that
-hair stylist.
+A user can add a hair stylist and also add clients to each hair stylist.
 
 ## Setup
 *clone the repository onto your desktop from this link https://github.com/bdspen/hair_salon.git

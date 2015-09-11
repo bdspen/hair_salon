@@ -76,7 +76,7 @@
         }
         function updateName($new_stylist_name)
         {
-            $GLOBALS['DB']->exec("UPDATE stylist SET stylist_name = '{new_stylist_name}'
+            $GLOBALS['DB']->exec("UPDATE stylist SET stylist_name = '{$new_stylist_name}'
                 WHERE id = {$this->getId()};");
                 $this->setStylistName($new_stylist_name);
         }

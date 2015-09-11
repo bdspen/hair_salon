@@ -5,7 +5,9 @@
     </head>
     <body>
         <div class='container'>
-            <h1>{{ stylist.getStylistName }}'s Clients:</h1>
+            <h1><a href="/stylist/{{ stylist.getId }}/edit">{{ stylist.getStylistName }}'s</a> Clients:</h1>
+            <p>*click name to edit*</p>
+
 
             {% if clients is not empty %}
 
@@ -14,7 +16,7 @@
                 {% endfor %}
 
             {% else %}
-                <p>No clients added yet!</p>
+                <h2>No clients added yet!</h2>
 
             {% endif %}
 
@@ -25,13 +27,18 @@
                     <input type='hidden' name='stylist_id' value='{{ stylist.getId }}'>
 
                     <input type='text' class='form-control' name='client_name' placeholder='Client Name'>
-                    <button class='btn btn-info' type='submit'>Add Client</button>
+
                 </div>
+                <button class='btn btn-info' type='submit'>Add Client</button>
             </form>
             <form action="/stylist/{{ stylist.getId }}/delete" method="post">
                 <input name="_method" type="hidden" value="delete">
 
                 <button class="btn btn-danger btn-xs" type="submit">DELETE STYLIST</button>
+            </form>
+
+            <form action="/delete_clients" method="post">
+                <button type="submit" class="btn btn-danger btn-xs">DELETE ALL CLIENTS</button>
             </form>
 
             <p><a href='/'>Home</a></p>

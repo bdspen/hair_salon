@@ -1,25 +1,24 @@
 <html>
     <head>
-        <title>Edit Client</title>
+        <title>Edit Stylist</title>
         <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css'>
 
     </head>
     <body>
         <div class='container'>
 
-            <h1>Update {{ client.getClientName }}</h1>
+            <h1>Update {{ stylist.getStylistName }}</h1>
 
-                <form action="/client/{{ client.getId }}" method="post">
+                <form action="/stylist/{{ stylist.getId }}" method="post">
                     <div class="form-group">
                         <input name="_method" type="hidden" value="patch">
 
                         <input class="form-control" id="name" name="name" type="text" placeholder="Change Name">
-
-                        <button type="submit" class="btn btn-info">Update</button>
                     </div>
+                    <button type="submit" class="btn btn-info">Update</button>
                 </form>
 
-                <form action="/client/{{ client.getId }}/delete" method="post">
+                <form action="/stylist/{{ stylist.getId }}/delete" method="post">
                     <input name="_method" type="hidden" value="delete">
 
                     <button type="submit" class="btn btn-danger btn-xs">DELETE</button>

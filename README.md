@@ -10,11 +10,11 @@
 A user can add a hair stylist and also add clients to each hair stylist.
 
 ## Setup
-*clone the repository onto your desktop from this link https://github.com/bdspen/hair_salon.git
-*from the command line cd into the hair_salon folder on your desktop and run the command $ composer install
-*If you have MAMP or a similar setup, run your servers and go to localhost:XXXX/phpmyadmin where XXXX is the port of your server
-*import the zipped database in the hair_salon folder
-*run your localhost server to view the site.
+* clone the repository onto your desktop from this link https://github.com/bdspen/hair_salon.git
+* from the command line cd into the hair_salon folder on your desktop and run the command $ composer install
+* If you have MAMP or a similar setup, run your servers and go to localhost:XXXX/phpmyadmin where XXXX is the port of your server
+* import the zipped database in the hair_salon folder
+* run your localhost server to view the site.
 
 
 ## Technologies Used
@@ -22,8 +22,6 @@ A user can add a hair stylist and also add clients to each hair stylist.
 PHP, TWIG, SILEX and MYSQL were all used to create this project.
 
 ### Legal
-
-*This is boilerplate legal language. Read through it, and if you like it, use it. There are other license agreements online, but you can generally copy and paste this.*
 
 Copyright (c) 2015 **Ben Spenard**
 

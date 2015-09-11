@@ -1,7 +1,7 @@
 # Hair Salon Helper
 
 ##### An application that allows a salon owner to make a list of their stylists and clients
-##### 08/21/2015
+##### 09/11/2015
 
 #### By **Ben Spenard**
 
